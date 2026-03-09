@@ -227,13 +227,19 @@ export function PatrimoineModal({ site, isOpen, onClose, language }: PatrimoineM
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button
-                variant="default"
-                className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${site.coordinates[1]},${site.coordinates[0]}`}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <MapPin className="mr-2 h-4 w-4" />
-                {t.getDirections}
-              </Button>
+                <Button
+                  variant="default"
+                  className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  <MapPin className="mr-2 h-4 w-4" />
+                  {t.getDirections}
+                </Button>
+              </a>
               {site.has360 && !is360View && (
                 <Button
                   variant="outline"
