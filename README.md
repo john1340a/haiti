@@ -29,25 +29,27 @@ Application web cartographique interactive pour explorer le patrimoine culturel 
    ```
 
 3. **Configurer la clé API Jawg**
-   
-   La clé API Jawg est actuellement codée en dur dans le fichier `components/patrimoine-map.tsx`. 
-   
-   Pour utiliser votre propre clé :
-   - Ouvrez `components/patrimoine-map.tsx`
-   - Recherchez l'URL du style Jawg (ligne ~168)
-   - Remplacez le token par le vôtre :
-   ```typescript
-   style: "https://api.jawg.io/styles/jawg-streets.json?access-token=VOTRE_CLE_API"
-   ```
 
+   Le projet utilise des variables d'environnement pour la clé API. 
+   - Créez un fichier `.env.local` à la racine du projet.
+   - Ajoutez votre jeton d'accès Jawg :
+   ```env
+   NEXT_PUBLIC_JAWG_ACCESS_TOKEN=VOTRE_CLE_API
+   ```
    Vous pouvez obtenir une clé API gratuite sur [jawg.io](https://www.jawg.io/).
 
-4. **Lancer le serveur de développement**
+4. **Configuration pour Vercel (Production)**
+
+   Lors du déploiement sur Vercel, vous devez ajouter la variable d'environnement dans le tableau de bord Vercel :
+   - Allez dans **Settings** > **Environment Variables**.
+   - Ajoutez `NEXT_PUBLIC_JAWG_ACCESS_TOKEN` avec votre clé API.
+
+5. **Lancer le serveur de développement**
    ```bash
    pnpm dev
    ```
 
-5. **Ouvrir dans le navigateur**
+6. **Ouvrir dans le navigateur**
    ```
    http://localhost:3000
    ```
