@@ -86,11 +86,11 @@ export function PatrimoineModal({ site, isOpen, onClose }: PatrimoineModalProps)
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-h-[90vh] w-[95vw] max-w-3xl overflow-hidden rounded-2xl border-0 bg-card p-0 shadow-2xl sm:w-full">
+      <DialogContent className="max-h-[95vh] w-[95vw] max-w-3xl overflow-y-auto rounded-2xl border-0 bg-card p-0 shadow-2xl sm:w-full scrollbar-hide">
         <div className="relative">
           {/* Image Container */}
           <div
-            className="relative h-64 w-full overflow-hidden sm:h-80 md:h-96"
+            className="relative h-56 w-full overflow-hidden sm:h-80 md:h-96"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
