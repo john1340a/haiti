@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import maplibregl from "maplibre-gl"
 import "maplibre-gl/dist/maplibre-gl.css"
 import { Search, Map as MapIcon, Layers, ChevronDown, Menu, X } from "lucide-react"
+import { feature } from "topojson-client"
 import { PatrimoineModal } from "./patrimoine-modal"
 import { Button } from "./ui/button"
 
@@ -72,7 +73,7 @@ const patrimoineSites: PatrimoineSite[] = [
     description: "Manifestation culturelle et musicale traditionnelle haïtienne.",
     description_ht: "Yon gwo fèt kiltirèl ak mizik tradisyonèl ayisyen.",
     coordinates: [-72.6333, 18.5109],
-    imageUrl: "/images/festivals/rara.png",
+    imageUrl: "/images/festivals/rara.webp",
     has360: false,
     category: "festival",
     group: "immaterial",
@@ -84,7 +85,7 @@ const patrimoineSites: PatrimoineSite[] = [
     description: "Célèbre carnaval reconnu pour ses masques en papier-mâché et son artisanat exceptionnel.",
     description_ht: "Gwo fèt kanaval ki selèb pou bèl mas an papye-mache ak tout atizay li yo.",
     coordinates: [-72.5393, 18.2404],
-    imageUrl: "/images/festivals/carnaval.png",
+    imageUrl: "/images/festivals/carnaval.webp",
     has360: false,
     category: "festival",
     group: "immaterial",
@@ -96,7 +97,7 @@ const patrimoineSites: PatrimoineSite[] = [
     description: "Célébration spirituelle honorant les ancêtres et les esprits des morts (Gede).",
     description_ht: "Yon gwo selebrasyon espirityèl pou onore zansèt yo ak lespri mò yo (Gede).",
     coordinates: [-72.3333, 18.5333],
-    imageUrl: "/images/festivals/gede.png",
+    imageUrl: "/images/festivals/gede.webp",
     has360: false,
     category: "festival",
     group: "immaterial",
@@ -309,9 +310,11 @@ export function PatrimoineMap() {
 
   const loadBoundaries = (map: maplibregl.Map) => {
     // 1. Departments (ADM1) - High visibility amber (Local Data)
-    fetch("/data/hti-adm1.geojson")
+    fetch("/data/hti-adm1.topojson")
       .then(res => res.json())
-      .then(data => {
+      .then(topology => {
+        // Convert TopoJSON to GeoJSON
+        const data = feature(topology, topology.objects['hti-adm1']) as any;
         if (!map.getSource("haiti-adm1")) {
           map.addSource("haiti-adm1", { type: "geojson", data })
           
@@ -348,9 +351,11 @@ export function PatrimoineMap() {
       .catch(err => console.error("Could not load ADM1 boundaries:", err))
 
     // 2. Communes (ADM2) - Clean white lines (Local Data)
-    fetch("/data/hti-adm2.geojson")
+    fetch("/data/hti-adm2.topojson")
       .then(res => res.json())
-      .then(data => {
+      .then(topology => {
+        // Convert TopoJSON to GeoJSON
+        const data = feature(topology, topology.objects['hti-adm2']) as any;
         if (!map.getSource("haiti-adm2")) {
           map.addSource("haiti-adm2", { type: "geojson", data })
           map.addLayer({
@@ -706,6 +711,28 @@ export function PatrimoineMap() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Credits - Bottom Right (Perfectly matched with MapLibre native style) */}
+      <div className="absolute bottom-[10px] right-[46px] z-40 flex h-5 items-center gap-1.5 rounded-full bg-white/80 px-2.5 backdrop-blur-xs text-[10px] font-sans text-[#333] transition-all hover:bg-white/95 shadow-sm">
+        <span className="opacity-80 font-normal leading-[20px]">{language === "fr" ? "Réalisé par" : "Reyalize pa"}</span>
+        <a 
+          href="https://www.aigeoh.org/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="hover:underline font-normal leading-[20px] transition-colors"
+        >
+          AIGEOH
+        </a>
+        <span className="opacity-40 leading-[20px]">|</span>
+        <a 
+          href="https://www.malt.fr/profile/jeankellyseguin" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="hover:underline font-normal leading-[20px] transition-colors"
+        >
+          JK'S
+        </a>
       </div>
 
       {/* Bottom Site Card */}
