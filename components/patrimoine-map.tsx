@@ -14,8 +14,10 @@ export interface PatrimoineSite {
   id: string
   name: string
   name_ht?: string
+  name_en?: string
   description: string
   description_ht?: string
+  description_en?: string
   coordinates: [number, number]
   imageUrl: string
   has360: boolean
@@ -29,9 +31,11 @@ const patrimoineSites: PatrimoineSite[] = [
     id: "citadelle",
     name: "Citadelle Laferrière",
     name_ht: "Sitadèl Laferyè",
+    name_en: "Citadel Laferrière",
     description:
       "La Citadelle Laferrière est une grande forteresse située au sommet de la montagne Bonnet à l'Évêque. Symbole de la liberté haïtienne.",
     description_ht: "Sitadèl Laferyè se yon gwo fò ki sou tèt mòn Bonèt alévèk. Li se yon senbòl libète pou Ayisyen.",
+    description_en: "The Citadel Laferrière is a large fortress located atop the Bonnet à l'Évêque mountain. A symbol of Haitian liberty.",
     coordinates: [-72.2435, 19.5739],
     imageUrl: "https://visithaiti.com/wp-content/uploads/2025/03/citadelle-henri-jean-oscar-augustin_hero.jpg",
     has360: true,
@@ -43,9 +47,11 @@ const patrimoineSites: PatrimoineSite[] = [
     id: "sans-souci",
     name: "Palais Sans-Souci",
     name_ht: "Palè Sansousi",
+    name_en: "Sans-Souci Palace",
     description:
       "Le Palais Sans-Souci était la résidence royale du roi Henri Ier d'Haïti dans le Nord.",
     description_ht: "Palè Sansousi te rezidans wa Henri I nan Nò Peyi a.",
+    description_en: "The Sans-Souci Palace was the royal residence of King Henry I of Haiti in the North.",
     coordinates: [-72.2217, 19.6061],
     imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
     has360: true,
@@ -57,8 +63,10 @@ const patrimoineSites: PatrimoineSite[] = [
     id: "bassin-bleu",
     name: "Bassin Bleu",
     name_ht: "Basen Ble",
+    name_en: "Bassin Bleu",
     description: "Série de bassins naturels aux couleurs émeraude près de Jacmel.",
     description_ht: "Yon seri basen natirèl ak koulè ble toupre Jakmèl.",
+    description_en: "A series of natural basins with emerald colors near Jacmel.",
     coordinates: [-72.35, 19.65],
     imageUrl: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&q=80",
     has360: true,
@@ -70,8 +78,10 @@ const patrimoineSites: PatrimoineSite[] = [
     id: "rara",
     name: "Rara de Léogâne",
     name_ht: "Rara Leyogan",
+    name_en: "Rara of Leogane",
     description: "Manifestation culturelle et musicale traditionnelle haïtienne.",
     description_ht: "Yon gwo fèt kiltirèl ak mizik tradisyonèl ayisyen.",
+    description_en: "A traditional Haitian cultural and musical festival.",
     coordinates: [-72.6333, 18.5109],
     imageUrl: "/images/festivals/rara.webp",
     has360: false,
@@ -82,8 +92,10 @@ const patrimoineSites: PatrimoineSite[] = [
     id: "kanaval-jacmel",
     name: "Kanaval de Jacmel",
     name_ht: "Kanaval Jakmèl",
+    name_en: "Jacmel Carnival",
     description: "Célèbre carnaval reconnu pour ses masques en papier-mâché et son artisanat exceptionnel.",
     description_ht: "Gwo fèt kanaval ki selèb pou bèl mas an papye-mache ak tout atizay li yo.",
+    description_en: "Famous carnival known for its papier-mâché masks and exceptional craftsmanship.",
     coordinates: [-72.5393, 18.2404],
     imageUrl: "/images/festivals/carnaval.webp",
     has360: false,
@@ -94,8 +106,10 @@ const patrimoineSites: PatrimoineSite[] = [
     id: "gede",
     name: "Fête Gede",
     name_ht: "Fèt Gede",
+    name_en: "Gede Festival",
     description: "Célébration spirituelle honorant les ancêtres et les esprits des morts (Gede).",
     description_ht: "Yon gwo selebrasyon espirityèl pou onore zansèt yo ak lespri mò yo (Gede).",
+    description_en: "A spiritual celebration honoring ancestors and the spirits of the dead (Gede).",
     coordinates: [-72.3333, 18.5333],
     imageUrl: "/images/festivals/gede.webp",
     has360: false,
@@ -130,6 +144,19 @@ const translations = {
     streets: "Ri",
     showBoundaries: "Fwontyè",
     noResults: "Nou pa jwenn anyen",
+  },
+  en: {
+    title: "Haiti Heritage",
+    subtitle: "Explore historical and natural treasures",
+    searchPlaceholder: "Search for a city, a place...",
+    all: "All",
+    cultural: "Cultural Heritage",
+    tourist: "Tourist Heritage",
+    immaterial: "Immaterial Heritage",
+    satellite: "Satellite",
+    streets: "Streets",
+    showBoundaries: "Boundaries",
+    noResults: "No results found",
   }
 }
 
@@ -143,21 +170,21 @@ const categoryColors: Record<string, string> = {
   craft: "#EA580C",
 }
 
-const categoryLabels: Record<string, { fr: string, ht: string }> = {
-  fortress: { fr: "Forteresse", ht: "Fò" },
-  church: { fr: "Église", ht: "Legliz" },
-  palace: { fr: "Palais", ht: "Palè" },
-  monument: { fr: "Monument", ht: "Moniman" },
-  natural: { fr: "Site Naturel", ht: "Sit Natirèl" },
-  festival: { fr: "Festival", ht: "Fèt" },
-  craft: { fr: "Artisanat", ht: "Atizana" },
+const categoryLabels: Record<string, { fr: string, ht: string, en: string }> = {
+  fortress: { fr: "Forteresse", ht: "Fò", en: "Fortress" },
+  church: { fr: "Église", ht: "Legliz", en: "Church" },
+  palace: { fr: "Palais", ht: "Palè", en: "Palace" },
+  monument: { fr: "Monument", ht: "Moniman", en: "Monument" },
+  natural: { fr: "Site Naturel", ht: "Sit Natirèl", en: "Natural Site" },
+  festival: { fr: "Festival", ht: "Fèt", en: "Festival" },
+  craft: { fr: "Artisanat", ht: "Atizana", en: "Crafts" },
 }
 
 const groups = ["cultural", "tourist", "immaterial"] as PatrimoineGroup[]
-const groupLabels: Record<PatrimoineGroup, { fr: string, ht: string }> = {
-  cultural: { fr: "Culturel", ht: "Kiltirèl" },
-  tourist: { fr: "Touristique", ht: "Touristik" },
-  immaterial: { fr: "Immatériel", ht: "Imateryèl" },
+const groupLabels: Record<PatrimoineGroup, { fr: string, ht: string, en: string }> = {
+  cultural: { fr: "Patrimoine Culturel", ht: "Patrimwàn Kiltirèl", en: "Cultural Heritage" },
+  tourist: { fr: "Patrimoine Touristique", ht: "Patrimwàn Touristik", en: "Tourist Heritage" },
+  immaterial: { fr: "Patrimoine Immatériel", ht: "Patrimwàn Imateryèl", en: "Immaterial Heritage" },
 }
 
 
@@ -191,7 +218,7 @@ export function PatrimoineMap() {
   const [searchQuery, setSearchQuery] = useState("")
   const [suggestions, setSuggestions] = useState<any[]>([])
   const [showSuggestions, setShowSuggestions] = useState(false)
-  const [language, setLanguage] = useState<"fr" | "ht">("fr")
+  const [language, setLanguage] = useState<"fr" | "ht" | "en">("fr")
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
@@ -509,7 +536,8 @@ export function PatrimoineMap() {
     const matchesCategory = activeCategory === "all" || site.category === activeCategory
     const matchesSearch = searchQuery === "" || 
       site.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (site.name_ht?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false)
+      (site.name_ht?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false) ||
+      (site.name_en?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false)
     return matchesCategory && matchesSearch
   })
 
@@ -587,21 +615,23 @@ export function PatrimoineMap() {
                 >
                   {language === "fr" ? (
                     <img src="https://flagcdn.com/w40/fr.png" alt="FR" className="h-5 w-7 object-cover rounded-sm shadow-xs" />
-                  ) : (
+                  ) : language === "ht" ? (
                     <img src="https://flagcdn.com/w40/ht.png" alt="HT" className="h-5 w-7 object-cover rounded-sm shadow-xs" />
+                  ) : (
+                    <img src="https://flagcdn.com/w40/gb.png" alt="EN" className="h-5 w-7 object-cover rounded-sm shadow-xs" />
                   )}
                   <ChevronDown className={`ml-2 h-3 w-3 transition-transform ${isLangMenuOpen ? "rotate-180" : ""}`} />
                 </Button>
                 {isLangMenuOpen && (
                   <div className="absolute right-0 mt-2 w-20 overflow-hidden rounded-xl border border-border bg-background/95 shadow-lg backdrop-blur-md">
-                    {(["fr", "ht"] as const).map((lang) => (
+                    {(["fr", "ht", "en"] as const).map((lang) => (
                       <button
                         key={lang}
                         onClick={() => { setLanguage(lang); setIsLangMenuOpen(false); }}
                         className="flex w-full items-center justify-center py-3 hover:bg-muted transition-colors"
                       >
                         <img 
-                          src={`https://flagcdn.com/w40/${lang === "fr" ? "fr" : "ht"}.png`} 
+                          src={`https://flagcdn.com/w40/${lang === "fr" ? "fr" : lang === "ht" ? "ht" : "gb"}.png`} 
                           alt={lang} 
                           className="h-5 w-7 object-cover rounded-sm shadow-xs" 
                         />
@@ -715,7 +745,7 @@ export function PatrimoineMap() {
 
       {/* Credits - Bottom Right (Perfectly matched with MapLibre native style) */}
       <div className="absolute bottom-[10px] right-[46px] z-40 flex h-5 items-center gap-1.5 rounded-full bg-white/80 px-2.5 backdrop-blur-xs text-[10px] font-sans text-[#333] transition-all hover:bg-white/95 shadow-sm">
-        <span className="opacity-80 font-normal leading-[20px]">{language === "fr" ? "Réalisé par" : "Reyalize pa"}</span>
+        <span className="opacity-80 font-normal leading-[20px]">{language === "fr" ? "Réalisé par" : (language === "ht" ? "Reyalize pa" : "Developed by")}</span>
         <a 
           href="https://www.aigeoh.org/" 
           target="_blank" 
@@ -751,8 +781,12 @@ export function PatrimoineMap() {
                   <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: categoryColors[filteredSites[0].category] }} />
                   <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/80">{categoryLabels[filteredSites[0].category][language]}</span>
                 </div>
-                <h3 className="mt-1 line-clamp-1 text-sm font-bold text-foreground">{language === "fr" ? filteredSites[0].name : (filteredSites[0].name_ht || filteredSites[0].name)}</h3>
-                <p className="mt-1 line-clamp-1 text-xs text-muted-foreground">{language === "fr" ? filteredSites[0].description : (filteredSites[0].description_ht || filteredSites[0].description)}</p>
+                <h3 className="mt-1 line-clamp-1 text-sm font-bold text-foreground">
+                  {language === "fr" ? filteredSites[0].name : (language === "ht" ? (filteredSites[0].name_ht || filteredSites[0].name) : (filteredSites[0].name_en || filteredSites[0].name))}
+                </h3>
+                <p className="mt-1 line-clamp-1 text-xs text-muted-foreground">
+                  {language === "fr" ? filteredSites[0].description : (language === "ht" ? (filteredSites[0].description_ht || filteredSites[0].description) : (filteredSites[0].description_en || filteredSites[0].description))}
+                </p>
               </div>
             </button>
           </div>

@@ -15,7 +15,7 @@ interface PatrimoineModalProps {
   site: PatrimoineSite | null
   isOpen: boolean
   onClose: () => void
-  language: "fr" | "ht"
+  language: "fr" | "ht" | "en"
 }
 
 const translations = {
@@ -34,17 +34,25 @@ const translations = {
     dragToExplore: "Glise pou dekouvri nan 360°",
     getDirections: "Kijan pou rive la",
     explore360: "Dekouvri nan 360°",
+  },
+  en: {
+    reset: "Reset",
+    normalView: "Normal view",
+    view360: "360° view",
+    dragToExplore: "Drag to explore in 360°",
+    getDirections: "Get directions",
+    explore360: "Explore in 360°",
   }
 }
 
-const categoryLabels: Record<string, { fr: string, ht: string }> = {
-  fortress: { fr: "Forteresse", ht: "Fò" },
-  church: { fr: "Église", ht: "Legliz" },
-  palace: { fr: "Palais", ht: "Palè" },
-  monument: { fr: "Monument", ht: "Moniman" },
-  natural: { fr: "Site Naturel", ht: "Sit Natirèl" },
-  festival: { fr: "Festival", ht: "Fèt" },
-  craft: { fr: "Artisanat", ht: "Atizana" },
+const categoryLabels: Record<string, { fr: string, ht: string, en: string }> = {
+  fortress: { fr: "Forteresse", ht: "Fò", en: "Fortress" },
+  church: { fr: "Église", ht: "Legliz", en: "Church" },
+  palace: { fr: "Palais", ht: "Palè", en: "Palace" },
+  monument: { fr: "Monument", ht: "Moniman", en: "Monument" },
+  natural: { fr: "Site Naturel", ht: "Sit Natirèl", en: "Natural Site" },
+  festival: { fr: "Festival", ht: "Fèt", en: "Festival" },
+  craft: { fr: "Artisanat", ht: "Atizana", en: "Crafts" },
 }
 
 const categoryColors: Record<string, string> = {
@@ -211,7 +219,7 @@ export function PatrimoineModal({ site, isOpen, onClose, language }: PatrimoineM
           <div className="p-6">
             <DialogHeader className="mb-4">
               <DialogTitle className="text-2xl font-bold tracking-tight text-card-foreground sm:text-3xl">
-                {language === "fr" ? site.name : (site.name_ht || site.name)}
+                {language === "fr" ? site.name : (language === "ht" ? (site.name_ht || site.name) : (site.name_en || site.name))}
               </DialogTitle>
             </DialogHeader>
 
@@ -223,7 +231,7 @@ export function PatrimoineModal({ site, isOpen, onClose, language }: PatrimoineM
             </div>
 
             <p className="mt-4 leading-relaxed text-card-foreground/80">
-              {language === "fr" ? site.description : (site.description_ht || site.description)}
+              {language === "fr" ? site.description : (language === "ht" ? (site.description_ht || site.description) : (site.description_en || site.description))}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
