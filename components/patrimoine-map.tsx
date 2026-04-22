@@ -67,7 +67,7 @@ const patrimoineSites: PatrimoineSite[] = [
     description: "Série de bassins naturels aux couleurs émeraude près de Jacmel.",
     description_ht: "Yon seri basen natirèl ak koulè ble toupre Jakmèl.",
     description_en: "A series of natural basins with emerald colors near Jacmel.",
-    coordinates: [-72.35, 19.65],
+    coordinates: [-72.5881, 18.2342],
     imageUrl: "/images/bassin_bleu.jpg",
     has360: true,
     panoramaUrl: "/images/bassin_bleu.jpg",
@@ -127,7 +127,7 @@ const patrimoineSites: PatrimoineSite[] = [
       "Pi gwo chit dlo nan peyi Ayiti, toupre Kan Perren nan Sid la. Yon basen koulè emwòd ki antoure pa yon bèl vejetasyon twopikal, bon pou benyen ak pwomnad.",
     description_en:
       "The tallest waterfall in Haiti, located near Camp-Perrin in the South. An emerald basin surrounded by lush tropical vegetation, perfect for swimming and hiking.",
-    coordinates: [-73.8667, 18.3167],
+    coordinates: [-73.8494, 18.3694],
     imageUrl: "/images/camp-perrin.jpg",
     has360: false,
     category: "waterfall",
@@ -144,7 +144,7 @@ const patrimoineSites: PatrimoineSite[] = [
       "Kapital depatman Sid la, yon vil kotyè istorik ki fonde nan 18èm syèk la. Yo rekonèt li pou bò lanmè a, achitekti kolonyal li ak kilti karayib li.",
     description_en:
       "Capital of the South department, a historic coastal city founded in the 18th century. Known for its seafront, colonial architecture and vibrant Caribbean culture.",
-    coordinates: [-73.7500, 18.1833],
+    coordinates: [-73.7500, 18.2000],
     imageUrl: "/images/villes-des-cayes.jpg",
     has360: false,
     category: "city",
@@ -161,7 +161,7 @@ const patrimoineSites: PatrimoineSite[] = [
       "Yon ti zile paradi sou kot Okay, ki popilè pou plaj sab blan yo, dlo ble turkwaz la ak ti bouk pechè ki byen pwoteje. Yon bèl trezò kache nan Sid Ayiti.",
     description_en:
       "A paradise island off the coast of Les Cayes, famous for its white sand beaches, turquoise waters and preserved fishing villages. A hidden gem of southern Haiti.",
-    coordinates: [-73.6333, 18.1000],
+    coordinates: [-73.6400, 18.0833],
     imageUrl: "/images/ile-a-vache.jpg",
     has360: false,
     category: "island",
@@ -178,7 +178,7 @@ const patrimoineSites: PatrimoineSite[] = [
       "Yon fò kolonyal franse 18èm syèk la ki Sen Lwi di Sid, yo te bati l pou defann bè a kont atak britanik yo. Vestij istorik ki bò lanmè a.",
     description_en:
       "18th-century French colonial fortress located in Saint-Louis du Sud, built to defend the bay against British incursions. Historic seaside ruins steeped in history.",
-    coordinates: [-73.0833, 18.2500],
+    coordinates: [-73.5514, 18.2515],
     imageUrl: "/images/fort-des-oliviers.jpg",
     has360: false,
     category: "fortress",
@@ -212,7 +212,7 @@ const patrimoineSites: PatrimoineSite[] = [
       "Plèn Sid yo alantou Okay se premye peyi vetivè nan mond lan, yon plant santi bon ki bay yon lwil esansyèl Ayisyen ki gen gwo valè nan gwo pafimri entènasyonal yo.",
     description_en:
       "The southern plains around Les Cayes form the world's leading vetiver terroir — an aromatic plant whose Haitian essential oil is prized by international high-end perfumery.",
-    coordinates: [-73.8000, 18.2000],
+    coordinates: [-73.7000, 18.2200],
     imageUrl: "/images/terroir-du-vetiver.jpg",
     has360: false,
     category: "craft",
