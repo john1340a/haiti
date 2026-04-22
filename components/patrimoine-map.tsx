@@ -22,7 +22,7 @@ export interface PatrimoineSite {
   imageUrl: string
   has360: boolean
   panoramaUrl?: string
-  category: "fortress" | "church" | "palace" | "monument" | "natural" | "festival" | "craft"
+  category: "fortress" | "church" | "palace" | "monument" | "natural" | "festival" | "craft" | "waterfall" | "city" | "island" | "beach"
   group: PatrimoineGroup
 }
 
@@ -53,9 +53,9 @@ const patrimoineSites: PatrimoineSite[] = [
     description_ht: "Palè Sansousi te rezidans wa Henri I nan Nò Peyi a.",
     description_en: "The Sans-Souci Palace was the royal residence of King Henry I of Haiti in the North.",
     coordinates: [-72.2217, 19.6061],
-    imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    imageUrl: "/images/palais-sans-souci.webp",
     has360: true,
-    panoramaUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
+    panoramaUrl: "/images/palais-sans-souci.webp",
     category: "palace",
     group: "cultural",
   },
@@ -68,9 +68,9 @@ const patrimoineSites: PatrimoineSite[] = [
     description_ht: "Yon seri basen natirèl ak koulè ble toupre Jakmèl.",
     description_en: "A series of natural basins with emerald colors near Jacmel.",
     coordinates: [-72.35, 19.65],
-    imageUrl: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&q=80",
+    imageUrl: "/images/bassin_bleu.jpg",
     has360: true,
-    panoramaUrl: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=1600&q=80",
+    panoramaUrl: "/images/bassin_bleu.jpg",
     category: "natural",
     group: "tourist",
   },
@@ -114,6 +114,108 @@ const patrimoineSites: PatrimoineSite[] = [
     imageUrl: "/images/festivals/gede.webp",
     has360: false,
     category: "festival",
+    group: "immaterial",
+  },
+  {
+    id: "saut-mathurine",
+    name: "Saut-Mathurine",
+    name_ht: "So Matirin",
+    name_en: "Saut-Mathurine Waterfall",
+    description:
+      "Plus haute chute d'eau d'Haïti, située près de Camp-Perrin dans le Sud. Un bassin émeraude entouré de végétation tropicale luxuriante, idéal pour la baignade et la randonnée.",
+    description_ht:
+      "Pi gwo chit dlo nan peyi Ayiti, toupre Kan Perren nan Sid la. Yon basen koulè emwòd ki antoure pa yon bèl vejetasyon twopikal, bon pou benyen ak pwomnad.",
+    description_en:
+      "The tallest waterfall in Haiti, located near Camp-Perrin in the South. An emerald basin surrounded by lush tropical vegetation, perfect for swimming and hiking.",
+    coordinates: [-73.8667, 18.3167],
+    imageUrl: "/images/camp-perrin.jpg",
+    has360: false,
+    category: "waterfall",
+    group: "tourist",
+  },
+  {
+    id: "les-cayes",
+    name: "Ville des Cayes",
+    name_ht: "Vil Okay",
+    name_en: "City of Les Cayes",
+    description:
+      "Capitale du département du Sud, ville côtière historique fondée au XVIIIe siècle. Connue pour son front de mer, son architecture coloniale et sa culture caribéenne vibrante.",
+    description_ht:
+      "Kapital depatman Sid la, yon vil kotyè istorik ki fonde nan 18èm syèk la. Yo rekonèt li pou bò lanmè a, achitekti kolonyal li ak kilti karayib li.",
+    description_en:
+      "Capital of the South department, a historic coastal city founded in the 18th century. Known for its seafront, colonial architecture and vibrant Caribbean culture.",
+    coordinates: [-73.7500, 18.1833],
+    imageUrl: "/images/villes-des-cayes.jpg",
+    has360: false,
+    category: "city",
+    group: "cultural",
+  },
+  {
+    id: "ile-a-vache",
+    name: "Île-à-Vache",
+    name_ht: "Il-a-Vach",
+    name_en: "Île-à-Vache",
+    description:
+      "Île paradisiaque au large des Cayes, réputée pour ses plages de sable blanc, ses eaux turquoise et ses villages de pêcheurs préservés. Un joyau caché du Sud d'Haïti.",
+    description_ht:
+      "Yon ti zile paradi sou kot Okay, ki popilè pou plaj sab blan yo, dlo ble turkwaz la ak ti bouk pechè ki byen pwoteje. Yon bèl trezò kache nan Sid Ayiti.",
+    description_en:
+      "A paradise island off the coast of Les Cayes, famous for its white sand beaches, turquoise waters and preserved fishing villages. A hidden gem of southern Haiti.",
+    coordinates: [-73.6333, 18.1000],
+    imageUrl: "/images/ile-a-vache.jpg",
+    has360: false,
+    category: "island",
+    group: "tourist",
+  },
+  {
+    id: "fort-des-oliviers",
+    name: "Fort des Oliviers",
+    name_ht: "Fò Dèz Olivye",
+    name_en: "Fort des Oliviers",
+    description:
+      "Forteresse coloniale française du XVIIIe siècle située à Saint-Louis du Sud, construite pour défendre la baie contre les incursions britanniques. Vestiges chargés d'histoire au bord de la mer.",
+    description_ht:
+      "Yon fò kolonyal franse 18èm syèk la ki Sen Lwi di Sid, yo te bati l pou defann bè a kont atak britanik yo. Vestij istorik ki bò lanmè a.",
+    description_en:
+      "18th-century French colonial fortress located in Saint-Louis du Sud, built to defend the bay against British incursions. Historic seaside ruins steeped in history.",
+    coordinates: [-73.0833, 18.2500],
+    imageUrl: "/images/fort-des-oliviers.jpg",
+    has360: false,
+    category: "fortress",
+    group: "cultural",
+  },
+  {
+    id: "port-a-piment",
+    name: "Port-à-Piment",
+    name_ht: "Pòtapiman",
+    name_en: "Port-à-Piment",
+    description:
+      "Commune côtière du Sud, célèbre pour la Grotte Marie-Jeanne, la plus grande grotte des Caraïbes, et pour ses paysages marins spectaculaires.",
+    description_ht:
+      "Yon komin kotyè nan Sid la, ki rekonèt pou Gwòt Mari-Jàn, pi gwo gwòt nan Karayib yo, ak pou bèl peyizaj bò lanmè li yo.",
+    description_en:
+      "A coastal commune in the South, famous for the Marie-Jeanne Cave — the largest cave in the Caribbean — and for its spectacular seascapes.",
+    coordinates: [-74.0833, 18.2333],
+    imageUrl: "/images/port-piment.jpg",
+    has360: false,
+    category: "natural",
+    group: "tourist",
+  },
+  {
+    id: "terroir-vetiver",
+    name: "Terroir du Vétiver",
+    name_ht: "Peyi Vetivè a",
+    name_en: "Vetiver Terroir",
+    description:
+      "Les plaines du Sud autour des Cayes forment le premier terroir mondial du vétiver, plante aromatique dont l'huile essentielle haïtienne est prisée par la haute parfumerie internationale.",
+    description_ht:
+      "Plèn Sid yo alantou Okay se premye peyi vetivè nan mond lan, yon plant santi bon ki bay yon lwil esansyèl Ayisyen ki gen gwo valè nan gwo pafimri entènasyonal yo.",
+    description_en:
+      "The southern plains around Les Cayes form the world's leading vetiver terroir — an aromatic plant whose Haitian essential oil is prized by international high-end perfumery.",
+    coordinates: [-73.8000, 18.2000],
+    imageUrl: "/images/terroir-du-vetiver.jpg",
+    has360: false,
+    category: "craft",
     group: "immaterial",
   }
 ]
@@ -168,6 +270,10 @@ const categoryColors: Record<string, string> = {
   natural: "#0891B2",
   festival: "#DB2777",
   craft: "#EA580C",
+  waterfall: "#0EA5E9",
+  city: "#475569",
+  island: "#14B8A6",
+  beach: "#F59E0B",
 }
 
 const categoryLabels: Record<string, { fr: string, ht: string, en: string }> = {
@@ -178,6 +284,10 @@ const categoryLabels: Record<string, { fr: string, ht: string, en: string }> = {
   natural: { fr: "Site Naturel", ht: "Sit Natirèl", en: "Natural Site" },
   festival: { fr: "Festival", ht: "Fèt", en: "Festival" },
   craft: { fr: "Artisanat", ht: "Atizana", en: "Crafts" },
+  waterfall: { fr: "Chute d'eau", ht: "Chit dlo", en: "Waterfall" },
+  city: { fr: "Ville historique", ht: "Vil istorik", en: "Historic City" },
+  island: { fr: "Île", ht: "Zile", en: "Island" },
+  beach: { fr: "Plage", ht: "Plaj", en: "Beach" },
 }
 
 const groups = ["cultural", "tourist", "immaterial"] as PatrimoineGroup[]
@@ -454,9 +564,9 @@ export function PatrimoineMap() {
           display: flex; align-items: center; justify-content: center;
           cursor: pointer; transition: transform 0.2s ease;
         ">
-          <div style="transform: rotate(45deg); color: white; font-size: 16px;">
-            ${getCategoryEmoji(site.category)}
-          </div>
+          <span class="material-symbols-rounded" style="transform: rotate(45deg); color: white; font-size: 20px; line-height: 1;">
+            ${getCategoryIcon(site.category)}
+          </span>
         </div>
       `
 
@@ -810,16 +920,20 @@ export function PatrimoineMap() {
   )
 }
 
-function getCategoryEmoji(category: string) {
+function getCategoryIcon(category: string) {
   switch (category) {
-    case "fortress": return "&#x1F3F0;"
-    case "church": return "&#x26EA;"
-    case "palace": return "&#x1F3DB;"
-    case "monument": return "&#x1F5FF;"
-    case "natural": return "&#x1F3DE;"
-    case "festival": return "&#x1F3AD;"
-    case "craft": return "&#x1F3A8;"
-    default: return "&#x1F4CD;"
+    case "fortress": return "castle"
+    case "church": return "church"
+    case "palace": return "account_balance"
+    case "monument": return "temple_buddhist"
+    case "natural": return "landscape"
+    case "festival": return "theater_comedy"
+    case "craft": return "palette"
+    case "waterfall": return "water_drop"
+    case "city": return "location_city"
+    case "island": return "beach_access"
+    case "beach": return "beach_access"
+    default: return "location_on"
   }
 }
 

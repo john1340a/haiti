@@ -53,6 +53,10 @@ const categoryLabels: Record<string, { fr: string, ht: string, en: string }> = {
   natural: { fr: "Site Naturel", ht: "Sit Natirèl", en: "Natural Site" },
   festival: { fr: "Festival", ht: "Fèt", en: "Festival" },
   craft: { fr: "Artisanat", ht: "Atizana", en: "Crafts" },
+  waterfall: { fr: "Chute d'eau", ht: "Chit dlo", en: "Waterfall" },
+  city: { fr: "Ville historique", ht: "Vil istorik", en: "Historic City" },
+  island: { fr: "Île", ht: "Zile", en: "Island" },
+  beach: { fr: "Plage", ht: "Plaj", en: "Beach" },
 }
 
 const categoryColors: Record<string, string> = {
@@ -63,6 +67,10 @@ const categoryColors: Record<string, string> = {
   natural: "#0891B2",
   festival: "#DB2777",
   craft: "#EA580C",
+  waterfall: "#0EA5E9",
+  city: "#475569",
+  island: "#14B8A6",
+  beach: "#F59E0B",
 }
 
 export function PatrimoineModal({ site, isOpen, onClose, language }: PatrimoineModalProps) {
